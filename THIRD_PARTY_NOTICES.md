@@ -1,6 +1,6 @@
 # Third-party notices
 
-MIT is proposed for original MusicBridge code, pending owner confirmation before upload. It does not apply to third-party assets, marks, dependencies, or provider data. No affiliation or endorsement is implied.
+Original MusicBridge code is MIT-licensed with owner rights and license choice confirmed. It does not apply to third-party assets, marks, dependencies, or provider data. No affiliation or endorsement is implied.
 
 ## Spotify mark
 

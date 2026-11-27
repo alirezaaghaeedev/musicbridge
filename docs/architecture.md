@@ -33,12 +33,12 @@ sequenceDiagram
   participant D as D1
   participant Q as Queue
   T->>H: POST /telegram/webhook with secret header
-  H->>H: Bound body to 32768 bytes; authenticate; validate update
+  H->>H: Bound body to 32768 bytes, authenticate, validate update
   H->>D: Atomic user/settings, replay ID, submission snapshot, outbox job
   D-->>H: Durable commit
   H-->>T: 200 acknowledgement
   H->>Q: Best-effort publish exact new job (waitUntil)
-  Note over H,Q: Failed publish is recoverable from D1; duplicate delivery creates no new job
+  Note over H,Q: Failed publish is recoverable from D1, duplicate delivery creates no new job
 ```
 
 Processing pause returns 503 after authentication. Private access restricts ingestion to the allowlisted owner. Acknowledgement guarantees durable ingestion, not successful provider delivery.

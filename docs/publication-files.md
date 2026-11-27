@@ -1,6 +1,6 @@
 # Exact publication file inventory
 
-101 intended files. Only main and its genuine preparation commits are intended; no tags or other branches. Generated private data and tool artifacts are excluded. A final commit/tree ID and external SHA-256 manifest identify the reviewed bytes.
+101 intended files. Main retains the reviewed source and genuine preparation history. Dependabot branches/PR refs are unmerged and audited separately; no tags or releases exist. Generated private data and tool artifacts are excluded. A final commit/tree ID and external SHA-256 manifest identify the reviewed bytes.
 
 - `.dev.vars.example`
 - `.github/ISSUE_TEMPLATE/bug_report.yml`

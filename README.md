@@ -8,7 +8,7 @@ An event-driven Telegram-to-Spotify music assistant built with TypeScript, Hono,
 
 ![Local tests: 192 passing](assets/local-tests.svg)
 
-Remote CI is pending private staging. Current local verification is recorded in [the release report](docs/public-release-report.md); the badge is not evidence until that run exists.
+The approved source commit passed [remote CI](https://github.com/alirezaaghaeedev/musicbridge/actions/runs/45955374499): 192 tests, clean mocked setup, static checks, secret scans, and dry-run build. See [the release report](docs/public-release-report.md) for scope and remaining gates.
 
 ![Actual mock-handler transcript, synthetic data](docs/demo/mock-demo.png)
 
@@ -98,4 +98,4 @@ Webhook bodies are bounded; secrets are compared through fixed-size hashes. OAut
 
 ## License and affiliation
 
-MIT is proposed for original project code, pending owner confirmation of rights and license choice. Spotify's included official logo remains subject to its own terms and is excluded from MIT. [Third-party notices](THIRD_PARTY_NOTICES.md) and [provider compliance](docs/provider-compliance.md) apply. MusicBridge is independent and is not endorsed by Spotify, Telegram, or Cloudflare.
+Original project code is available under the MIT License, with owner rights and license choice confirmed. Spotify's included official logo remains subject to its own terms and is excluded from MIT. [Third-party notices](THIRD_PARTY_NOTICES.md) and [provider compliance](docs/provider-compliance.md) apply. MusicBridge is independent and is not endorsed by Spotify, Telegram, or Cloudflare.
