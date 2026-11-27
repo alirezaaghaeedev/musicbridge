@@ -1,0 +1,61 @@
+{
+  "name": "musicbridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "db:migrate:local": "wrangler d1 migrations apply musicbridge-db --local",
+    "demo:local": "vitest run tests/e2e/demo.test.ts --reporter=verbose",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration tests/contract",
+    "test:e2e": "vitest run tests/e2e",
+    "test:coverage": "vitest run --coverage",
+    "build": "wrangler deploy --dry-run --outdir dist",
+    "evaluate": "vitest run tests/unit/evaluation.test.ts --reporter=verbose",
+    "benchmark": "node scripts/benchmark.mjs",
+    "secrets:generate": "node scripts/secrets.mjs",
+    "config:validate": "node scripts/operations.mjs validate",
+    "webhook:register": "node scripts/operations.mjs register",
+    "webhook:inspect": "node scripts/operations.mjs inspect",
+    "webhook:remove": "node scripts/operations.mjs remove",
+    "bot:commands": "node scripts/operations.mjs commands",
+    "smoke": "node scripts/operations.mjs smoke",
+    "docs:check": "node scripts/check-docs.mjs",
+    "privacy:check": "node scripts/check-public-files.mjs",
+    "demo:export": "node scripts/export-demo.mjs"
+  },
+  "dependencies": {
+    "hono": "^4.10.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261125.1",
+    "@eslint/js": "^9.39.0",
+    "@types/node": "^22.19.0",
+    "@vitest/coverage-v8": "5.1.2",
+    "eslint": "^9.39.0",
+    "miniflare": "4.20260730.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "5.1.2",
+    "wrangler": "4.168.0"
+  },
+  "description": "An event-driven serverless Telegram-to-Spotify music assistant with deterministic track matching, durable queues, and secure OAuth integration.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "overrides": {
+    "miniflare": {
+      "undici": "7.30.1",
+      "sharp": "0.35.5"
+    }
+  }
+}

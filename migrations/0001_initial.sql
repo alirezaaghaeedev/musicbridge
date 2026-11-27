@@ -1,0 +1,16 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE users (id TEXT PRIMARY KEY, created_at INTEGER NOT NULL);
+CREATE TABLE user_settings (user_id TEXT PRIMARY KEY REFERENCES users(id), value TEXT NOT NULL);
+CREATE TABLE spotify_connections (user_id TEXT PRIMARY KEY REFERENCES users(id), spotify_id TEXT NOT NULL, encrypted TEXT NOT NULL, expires_at INTEGER NOT NULL, version INTEGER NOT NULL DEFAULT 1, refresh_lease INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE oauth_sessions (state_hash TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id), expires_at INTEGER NOT NULL, status TEXT NOT NULL DEFAULT 'new', encrypted TEXT, spotify_id TEXT);
+CREATE TABLE playlists (user_id TEXT NOT NULL REFERENCES users(id), id TEXT NOT NULL, name TEXT NOT NULL, PRIMARY KEY(user_id,id));
+CREATE TABLE processed_updates (id INTEGER PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id), created_at INTEGER NOT NULL);
+CREATE TABLE audio_submissions (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id), chat_id TEXT NOT NULL, message_id INTEGER NOT NULL, metadata TEXT NOT NULL, settings TEXT NOT NULL, state TEXT NOT NULL, selected TEXT, error TEXT, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL);
+CREATE INDEX submissions_user ON audio_submissions(user_id,created_at DESC);
+CREATE TABLE match_candidates (submission_id TEXT PRIMARY KEY REFERENCES audio_submissions(id) ON DELETE CASCADE, value TEXT NOT NULL, expires_at INTEGER NOT NULL);
+CREATE TABLE playlist_operations (id TEXT PRIMARY KEY, submission_id TEXT NOT NULL UNIQUE REFERENCES audio_submissions(id) ON DELETE CASCADE, playlist_id TEXT NOT NULL, track_id TEXT NOT NULL, status TEXT NOT NULL, manual INTEGER NOT NULL, snapshot TEXT, created_at INTEGER NOT NULL);
+CREATE TABLE mutation_locks (playlist_id TEXT PRIMARY KEY, operation_id TEXT NOT NULL, lease INTEGER NOT NULL);
+CREATE TABLE conversation_sessions (user_id TEXT PRIMARY KEY REFERENCES users(id), value TEXT NOT NULL, expires_at INTEGER NOT NULL);
+CREATE TABLE callback_actions (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id), payload TEXT NOT NULL, expires_at INTEGER NOT NULL, consumed INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE outbox_jobs (id TEXT PRIMARY KEY, kind TEXT NOT NULL CHECK(kind IN ('update','music','notify')), payload TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'pending', attempts INTEGER NOT NULL DEFAULT 0, lease INTEGER NOT NULL DEFAULT 0, available_at INTEGER NOT NULL, published_at INTEGER NOT NULL DEFAULT 0, created_at INTEGER NOT NULL);
+CREATE INDEX outbox_ready ON outbox_jobs(status,available_at,lease,published_at);

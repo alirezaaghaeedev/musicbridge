@@ -1,0 +1,85 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "musicbridge-local",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-01",
+  "workers_dev": false,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "musicbridge-db",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "MUSIC_QUEUE",
+        "queue": "musicbridge-queue",
+      },
+    ],
+    "consumers": [
+      {
+        "queue": "musicbridge-queue",
+        "max_batch_size": 1,
+        "max_retries": 3,
+        "dead_letter_queue": "musicbridge-dead",
+      },
+    ],
+  },
+  "triggers": {
+    "crons": ["*/5 * * * *"],
+  },
+  "vars": {
+    "APP_ENV": "development",
+    "APP_MODE": "mock",
+    "PUBLIC_BASE_URL": "http://127.0.0.1:8787",
+    "DEFAULT_AUTO_ADD_ENABLED": "false",
+  },
+  "env": {
+    "production": {
+      "name": "REPLACE_WORKER",
+      "account_id": "REPLACE_ACCOUNT_ID",
+      "workers_dev": true,
+      "vars": {
+        "APP_ENV": "production",
+        "APP_MODE": "live",
+        "PROCESSING_ENABLED": "false",
+        "DEFAULT_AUTO_ADD_ENABLED": "false",
+        "BOT_ACCESS_MODE": "private",
+        "PUBLIC_BASE_URL": "https://REPLACE_WORKER.REPLACE_SUBDOMAIN.workers.dev",
+        "SPOTIFY_CLIENT_ID": "REPLACE_CLIENT_ID",
+        "SPOTIFY_REDIRECT_URI": "https://REPLACE_WORKER.REPLACE_SUBDOMAIN.workers.dev/oauth/callback",
+        "ALLOWED_TELEGRAM_USER_IDS": "REPLACE_OWNER_ID",
+      },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "musicbridge-db",
+          "database_id": "00000000-0000-0000-0000-000000000000",
+          "migrations_dir": "migrations",
+        },
+      ],
+      "queues": {
+        "producers": [
+          {
+            "binding": "MUSIC_QUEUE",
+            "queue": "musicbridge-queue",
+          },
+        ],
+        "consumers": [
+          {
+            "queue": "musicbridge-queue",
+            "max_batch_size": 1,
+            "max_retries": 3,
+            "dead_letter_queue": "musicbridge-dead",
+          },
+        ],
+      },
+      "triggers": {
+        "crons": ["*/5 * * * *"],
+      },
+    },
+  },
+}

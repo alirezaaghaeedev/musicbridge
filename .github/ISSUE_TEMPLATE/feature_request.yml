@@ -1,0 +1,9 @@
+name: Feature request
+description: Explain a focused problem and proposed change.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem, proposal, and trade-offs
+    validations:
+      required: true

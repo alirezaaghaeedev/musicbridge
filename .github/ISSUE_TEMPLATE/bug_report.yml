@@ -1,0 +1,24 @@
+name: Bug report
+description: Report a reproducible issue using synthetic data.
+body:
+  - type: markdown
+    attributes:
+      value: "Never include credentials, private identifiers, logs with personal data, or OAuth URLs. Report vulnerabilities privately via SECURITY.md."
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction and expected / actual behavior
+      description: Prefer mock mode and synthetic metadata.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version and local runtime
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized diagnostics
+      description: Review every line before posting.

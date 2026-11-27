@@ -1,0 +1,145 @@
+{
+  "mode": "mock",
+  "provenance": "Actual Hono/Queue handlers, local D1, synthetic providers; not a Telegram screenshot",
+  "playlistItems": 2,
+  "messages": [
+    {
+      "text": "[MOCK] Open Spotify authorization, then confirm the account here.",
+      "buttons": [
+        {
+          "text": "Spotify"
+        }
+      ]
+    },
+    {
+      "text": "[MOCK] Confirm linking this Spotify account:\nsynthetic-owner",
+      "buttons": [
+        {
+          "text": "Confirm / تأیید"
+        }
+      ]
+    },
+    {
+      "text": "[MOCK] Spotify connected. Select /playlist.",
+      "buttons": []
+    },
+    {
+      "text": "[MOCK] Saved.",
+      "buttons": []
+    },
+    {
+      "text": "[MOCK] [Spotify logo] ✅ Track added\nSpotify\nNorthern Lights\nExample Artist\nSynthetic Album\n240s · 100/100\nSynthetic Playlist\nhttps://open.spotify.com/track/AAAAAAAAAAAAAAAAAAAAAA\nhttps://open.spotify.com/playlist/PPPPPPPPPPPPPPPPPPPPPP",
+      "buttons": []
+    },
+    {
+      "text": "[MOCK] [Spotify logo] This track already exists in the playlist.\nSpotify\nNorthern Lights\nExample Artist\nSynthetic Album\n240s · 100/100\nSynthetic Playlist\nhttps://open.spotify.com/track/AAAAAAAAAAAAAAAAAAAAAA\nhttps://open.spotify.com/playlist/PPPPPPPPPPPPPPPPPPPPPP",
+      "buttons": []
+    },
+    {
+      "text": "[MOCK] [Spotify logo] Choose one candidate. Scores measure similarity, not probability.\n\n1. Distant Shore — Example Artist\n · 200s · 85/100\nSpotify: ✓\n\n2. Distant Shore — Example Artist\n · 201s · 85/100\nSpotify: ✓\n\n3. Northern Lights — Example Artist\nSynthetic Album · 240s · 66.67/100\nSpotify: ✓",
+      "buttons": [
+        {
+          "text": "Choose 1"
+        },
+        {
+          "text": "Open Spotify 1",
+          "url": "https://open.spotify.com/track/CCCCCCCCCCCCCCCCCCCCCC"
+        },
+        {
+          "text": "Choose 2"
+        },
+        {
+          "text": "Open Spotify 2",
+          "url": "https://open.spotify.com/track/DDDDDDDDDDDDDDDDDDDDDD"
+        },
+        {
+          "text": "Choose 3"
+        },
+        {
+          "text": "Open Spotify 3",
+          "url": "https://open.spotify.com/track/AAAAAAAAAAAAAAAAAAAAAA"
+        },
+        {
+          "text": "Edit title"
+        },
+        {
+          "text": "Edit artist"
+        },
+        {
+          "text": "Search / retry"
+        },
+        {
+          "text": "Cancel"
+        }
+      ]
+    },
+    {
+      "text": "[MOCK] [Spotify logo] ✅ Track added\nSpotify\nDistant Shore\nExample Artist\n\n200s · 85/100\nSynthetic Playlist\nhttps://open.spotify.com/track/CCCCCCCCCCCCCCCCCCCCCC\nhttps://open.spotify.com/playlist/PPPPPPPPPPPPPPPPPPPPPP",
+      "buttons": []
+    },
+    {
+      "text": "[MOCK] Settings\nAutomatic addition: true\nThreshold: 80\nPrevent duplicates: true\nLanguage: en\nSynthetic Playlist",
+      "buttons": [
+        {
+          "text": "Automatic addition"
+        },
+        {
+          "text": "Prevent duplicates"
+        },
+        {
+          "text": "فارسی / English"
+        },
+        {
+          "text": "−5"
+        },
+        {
+          "text": "+5"
+        }
+      ]
+    },
+    {
+      "text": "[MOCK] [Spotify logo] Select a playlist you own, or send /playlist followed by its URL, URI or ID.",
+      "buttons": [
+        {
+          "text": "Synthetic Playlist"
+        },
+        {
+          "text": "Open Spotify",
+          "url": "https://open.spotify.com/playlist/PPPPPPPPPPPPPPPPPPPPPP"
+        }
+      ]
+    },
+    {
+      "text": "[MOCK] ذخیره شد.",
+      "buttons": []
+    },
+    {
+      "text": "[MOCK] به MusicBridge خوش آمدید. ۱. /connect اتصال اسپاتیفای ۲. /playlist انتخاب پلی‌لیست ۳. /settings تنظیمات ۴. فایل موسیقی بفرستید یا /search عنوان | هنرمند",
+      "buttons": []
+    },
+    {
+      "text": "[MOCK] تنظیمات\nافزودن خودکار: true\nآستانه: 80\nجلوگیری از تکرار: true\nزبان: fa\nSynthetic Playlist",
+      "buttons": [
+        {
+          "text": "افزودن خودکار"
+        },
+        {
+          "text": "جلوگیری از تکرار"
+        },
+        {
+          "text": "فارسی / English"
+        },
+        {
+          "text": "−5"
+        },
+        {
+          "text": "+5"
+        }
+      ]
+    },
+    {
+      "text": "[MOCK] Saved.",
+      "buttons": []
+    }
+  ]
+}

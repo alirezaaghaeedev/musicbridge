@@ -1,0 +1,9 @@
+# Dependency license review
+
+The lockfile contains 316 dependency entries, including optional packages for other platforms and development tools. Every entry has declared license metadata in [the inventory](dependencies.json); the two runtime dependencies, Hono and Zod, are MIT. [Collected notices](NOTICES.txt) retain available installed-package license files and selected README license sections. No dependency code or binaries are vendored into this source release. npm obtains upstream distributions under their own terms.
+
+Declared licenses include MIT, Apache-2.0, ISC, BSD-2-Clause, BSD-3-Clause, 0BSD, BlueOak-1.0.0, CC0-1.0, Python-2.0, and LGPL-3.0-or-later combinations. Sharp's optional native image libraries include LGPL components; they are development-tool dependencies, not re-licensed under MIT. A future binary/container distribution requires a separate review of source/relinking and notice obligations.
+
+Some packaged tools omit a standalone top-level license file. Their declared licenses are recorded, but the collected notice file is not a complete upstream source bundle. Relevant upstream terms include [Cloudflare workers-sdk](https://github.com/cloudflare/workers-sdk), [workerd](https://github.com/cloudflare/workerd), [esbuild](https://github.com/evanw/esbuild), [Rollup](https://github.com/rollup/rollup), [Undici](https://github.com/nodejs/undici), and [sharp](https://github.com/lovell/sharp). Consult the exact locked package and upstream license when redistributing tools or platform binaries.
+
+The Spotify logo is a separate proprietary mark, excluded from the original-code MIT proposal; see [third-party notices](../../THIRD_PARTY_NOTICES.md). Original-code ownership and MIT choice still require owner approval. This inventory is an engineering review, not legal certification.

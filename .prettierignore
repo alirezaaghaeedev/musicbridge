@@ -1,0 +1,8 @@
+node_modules
+.npm-cache
+.wrangler
+dist
+coverage
+package-lock.json
+docs/demo/transcript.json
+docs/licenses/dependencies.json
