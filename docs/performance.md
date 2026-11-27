@@ -36,3 +36,7 @@ Acknowledgement after D1 commit and asynchronous Queue hops add latency; refresh
 Duplicate scans use 50-item pages, five pages by default, up to eight configured pages. An incomplete scan fails closed. Turning the scan off permits duplicate tracks but does not remove uncertainty reconciliation. Pending jobs retain captured settings.
 
 No 100–500-track sequential-import readiness, throughput SLA, or stable latency percentile is established. Future work includes rate scheduling, progress tracking, pause/resume, lock-aware scheduling, and HTTP headroom. These are [roadmap items](roadmap.md), not implemented guarantees.
+
+## Publication-candidate rerun
+
+On 2026-11-27, Node.js v22.17.0, three runs per case, current unchanged matcher: ordinary typo median 0.5996 ms; 256-character values 0.8506 ms; long-many-artist case 2.2456 ms; distinct adversarial case 2.5057 ms. The latter two again entered bounded-review fallback. CPU-clock samples rounded to zero and are not meaningful sub-millisecond CPU measurements. These local wall timings are neither a new controlled before/after study nor Cloudflare CPU evidence.
